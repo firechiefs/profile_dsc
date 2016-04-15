@@ -3,8 +3,7 @@
 Configues DSC to work with Puppet
 
 ## HIERA DATA:
-
- profile::dsc:lcm_config:
+profile::dsc:lcm_config:
 
  Using PuppetLabs recommendation:
 
