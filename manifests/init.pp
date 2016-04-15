@@ -9,7 +9,7 @@
 # HIERA EXAMPLE:
 # profile::dsc:lcm_config: 'Disabled'
 
-class profile::dsc {
+class profile_dsc {
   # HIERA LOOKUP:
   # --> PUPPET CODE VARIABLES:
   $lcm_config_refresh_mode = hiera('profile::dsc::lcm_config_refresh_mode')
