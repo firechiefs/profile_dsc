@@ -3,8 +3,9 @@
 Configues DSC to work with Puppet
 
 ## HIERA DATA:
+```
 profile::dsc:lcm_config:
-
+```
  Using PuppetLabs recommendation:
 
  https://forge.puppetlabs.com/puppetlabs/dsc#optionally-configure-the-dsc-lcm-refreshmode
