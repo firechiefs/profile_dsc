@@ -15,6 +15,14 @@ class profile_dsc {
   $lcm_config_refresh_mode = hiera('profile::dsc::lcm_config_refresh_mode')
   validate_string($lcm_config_refresh_mode)
 
+  # Upgrade to PowerShell 5 RTM from Production Preview breaks DSC commandlets
+  # https://msdn.microsoft.com/en-us/powershell/wmf/limitation_dsc
+  exec { 'powershell 5 RTM fix':
+    provider => powershell,
+    command  => 'mofcomp $env:windir\\system32\\wbem\\DscCoreConfProv.mof',
+    unless   => 'try { $output = Get-DscLocalConfigurationManager -ErrorAction Stop; exit 0 } catch { exit 1}',
+  }
+
   # Set Windows DSC LCM refresh_mode
   dsc::lcm_config {'disable_lcm':
     refresh_mode => $lcm_config_refresh_mode,
