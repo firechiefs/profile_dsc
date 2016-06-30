@@ -10,6 +10,8 @@
 # profile::dsc:lcm_config: 'Disabled'
 
 class profile_dsc {
+  # DSC required chocolatey WMF 5 packages
+  require profile_packages
   # HIERA LOOKUP:
   # --> PUPPET CODE VARIABLES:
   $lcm_config_refresh_mode = hiera('profile::dsc::lcm_config_refresh_mode')
